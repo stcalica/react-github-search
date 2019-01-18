@@ -1,0 +1,49 @@
+html, body {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+}
+
+.search-container {
+  margin: auto;
+  width: 100%;
+}
+
+.search-components {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#search{}
+
+.lang-dropdown  {}
+
+.results-fiter-bar {}
+
+.results-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.repo-name {
+  padding-right: 5px;
+}
+
+.created-date {
+  padding-left: 10px;
+}
