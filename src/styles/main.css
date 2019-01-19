@@ -66,19 +66,23 @@ button {
 
 .results-container {
   padding: 15px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-row-gap: 5px;
   margin: auto;
   width: 30%;
 }
 
 .result-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-columns: 60% 40% 0%;
+  grid-row-gap: 5px;
+  align-items: center;
   font-size: 15px;
 
+}
+
+.repo-item {
+  margin-right: 15px;
 }
 
 .repo-name {
@@ -87,4 +91,13 @@ button {
 
 .created-date {
   padding-left: 10px;
+}
+
+.link-arrow {
+  border: orange solid;
+  border-width: 0px 2px 2px 0px;
+  padding:4px;
+  margin: 0;
+  display: inline-block;
+  transform: rotate(-45deg);
 }
