@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import Repo from './components/Repo';
 import './styles/main.css';
 
 const github = 'https://api.github.com/search/repositories?q=' ;
-
-
- const Repo = (props) =>  {
-  return(
-    <div className="result-container">
-      <span className="repo-name"> {props.name} </span>
-      <span className="created-date"> {`${props.date.getMonth()+1}/${props.date.getDate()}/${props.date.getFullYear()}`} </span>
-    </div>
-  );
-};
 
 export default class RepoSearch extends Component {
 
@@ -25,11 +16,7 @@ export default class RepoSearch extends Component {
     };
   }
 
-  componentDidMount() { }
-
   handleQuery = (results) => {
-    //create results component and map to each one
-    console.log(results);
     let repos = results.items.map(r => (
       <Repo
         key={r.id}
@@ -61,7 +48,6 @@ export default class RepoSearch extends Component {
   };
 
   handleSort = (order) => {
-    //sort here by order selected from button
     let sorted = this.state.results;
     switch(order){
       case 'name':
@@ -92,7 +78,6 @@ export default class RepoSearch extends Component {
 
   handleSubmit = (e) => {
     let query = `${github}${this.state.search}+language:${this.state.language}`;
-    console.log(query);
     fetch(query)
       .then(data => data.json())
       .then(this.handleQuery)
@@ -119,7 +104,7 @@ export default class RepoSearch extends Component {
     return(
       <div className="search-container">
         <div className="search-components">
-        <form onSubmit={this.handleSubmit}>
+        <form className="search-form" onSubmit={this.handleSubmit}>
           <input type="text" name="search" id="search" placeholder="Search..."  onChange={this.handleSeacrhChange} />
           <button type="submit">Search</button>
           <select className="lang-dropdown" onChange={this.handleDropChange} value={this.state.language}>
@@ -133,7 +118,6 @@ export default class RepoSearch extends Component {
           <button onClick={() => this.handleSort('oldest')}>Oldest</button>
           <button onClick={() => this.handleSort('newest')}>Newest</button>
         </div>
-
         <div className="results-container">
         {
           this.state.results
