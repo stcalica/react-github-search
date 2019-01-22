@@ -11,7 +11,6 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
 
-
   font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 12px;
@@ -20,7 +19,6 @@ html, body {
 }
 
 button {
-
 
   color: white;
   background-color: orange;
@@ -36,7 +34,10 @@ button {
 }
 
 
-.search-components {
+.search-components {}
+
+.search-form {
+
   display: flex;
   flex-direction: row;
   margin: auto;
@@ -46,7 +47,6 @@ button {
 
 #search {
   padding: 8px;
-
 }
 
 .lang-dropdown  {
@@ -100,4 +100,47 @@ button {
   margin: 0;
   display: inline-block;
   transform: rotate(-45deg);
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(-360deg)}
+}
+
+.link-arrow:hover {
+  animation: spin .5s linear 3;
+}
+
+@media screen and (max-width:768px) {
+  html, body {
+    box-sizing: border-box;
+    width:100%;
+    height: 100%;
+    background:none;
+
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .created-date {
+
+    padding-left: 0; 
+  }
+
+  .results-container {
+
+    margin: 0;
+  }
+
+  button {
+
+  }
+
+  .search-form {
+    display: grid;
+    grid-template-rows: 20%;
+    grid-row-gap: 3px;
+  }
+
 }

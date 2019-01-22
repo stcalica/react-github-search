@@ -35,7 +35,8 @@ export default class RepoSearch extends Component {
   };
 
   //sorts from newest to oldest
-  handleDescSort = () => {
+  handleDescSort = (e) => {
+    e.preventDefault();
     this.setState({
       ...this.state,
       results: this.state.results.sort((a,b) => {
@@ -45,7 +46,8 @@ export default class RepoSearch extends Component {
   };
 
   //sorts by date starting by oldest to newest
-  handleAscSort = () => {
+  handleAscSort = (e) => {
+    e.preventDefault();
     this.setState({
       ...this.state,
       results: this.state.results.sort((a,b) => {
@@ -55,7 +57,8 @@ export default class RepoSearch extends Component {
   };
 
   //sorts by name
-  handleNameSort = () => {
+  handleNameSort = (e) => {
+    e.preventDefault();
     this.setState({
       ...this.state,
       results: this.state.results.sort((a,b) => {
@@ -100,18 +103,20 @@ export default class RepoSearch extends Component {
       <div className="search-container">
         <div className="search-components">
         <form className="search-form" onSubmit={this.handleSubmit}>
-          <input type="text" name="search" id="search" placeholder="Search..."  onChange={this.handleSearchChange} />
-          <button type="submit">Search</button>
+          <div className="search-bar">
+            <input type="text" name="search" id="search" placeholder="Search..."  onChange={this.handleSearchChange} />
+            <button type="submit">Search</button>
+          </div>
           <select className="lang-dropdown" onChange={this.handleDropChange} value={this.state.language}>
             <option value="python">Python</option>
             <option value="java">Java</option>
             <option value="javascript">Javascript</option>
             <option value="golang">Golang</option>
           </select>
-          </form>
           <button onClick={this.handleNameSort}>Sort By Name</button>
           <button onClick={this.handleAscSort}>Oldest</button>
           <button onClick={this.handleDescSort}>Newest</button>
+          </form>
         </div>
         <div className="results-container">
         {
